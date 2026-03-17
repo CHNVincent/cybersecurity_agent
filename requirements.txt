@@ -1,0 +1,12 @@
+Django>=4.2.0
+djangorestframework>=3.14.0
+python-decouple>=3.8  # Fixed package name
+requests>=2.31.0
+openai>=1.0.0
+torch>=2.0.0  # Optional - for local LLM inference
+chromadb>=0.4.0  # For vector storage
+celery>=5.3.0  # Optional - for background tasks
+redis>=4.0.0  # Optional - for Celery backend
+psycopg2-binary>=2.9.0  # For PostgreSQL support
+PyJWT>=2.8.0
+websockets>=11.0  # For MCP functionality

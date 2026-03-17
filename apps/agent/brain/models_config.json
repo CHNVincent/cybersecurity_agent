@@ -1,0 +1,12 @@
+{
+  "models": [
+    {
+      "name": "ali-bailian-coding",
+      "provider": "ali_bailian",
+      "api_key_env": "ALI_BAILIAN_API_KEY",
+      "model_name": "codeqwen-plus",
+      "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "type": "chat"
+    }
+  ]
+}

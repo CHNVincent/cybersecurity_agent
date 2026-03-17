@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberAuditor - Security Agent Desktop</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Left Sidebar -->
+    <div class="sidebar">
+        <!-- CyberAuditor logo with shield -->
+        <div class="logo-container">
+            <div class="logo">
+                <div class="shield-icon">🛡️</div>
+                <span>CyberAuditor</span>
+            </div>
+        </div>
+
+        <!-- User Login/Profile Section -->
+        <div class="user-section">
+            <div class="avatar">SE</div>
+            <div class="user-info">
+                <div class="username">安全专家</div>
+                <a class="login-btn">登录 / 注册</a>
+            </div>
+            <div class="logout-icon">×</div>
+        </div>
+
+        <!-- New Chat Button -->
+        <button class="new-chat-btn">
+            <span>➕</span>
+            <span>新对话</span>
+        </button>
+
+        <!-- Conversation History Title -->
+        <div class="history-title">对话历史</div>
+
+        <!-- Conversation History List -->
+        <div class="history-list">
+            <div class="history-item active">
+                <div class="code-icon"></div>
+                <div class="history-text">代码审计会话</div>
+                <div class="timestamp">今天</div>
+            </div>
+            <div class="history-item">
+                <div class="code-icon"></div>
+                <div class="history-text">网络拓扑分析</div>
+                <div class="timestamp">昨天</div>
+            </div>
+            <div class="history-item">
+                <div class="code-icon"></div>
+                <div class="history-text">漏洞扫描报告</div>
+                <div class="timestamp">3天前</div>
+            </div>
+            <div class="history-item">
+                <div class="code-icon"></div>
+                <div class="history-text">安全策略审查</div>
+                <div class="timestamp">周日</div>
+            </div>
+            <div class="history-item">
+                <div class="code-icon"></div>
+                <div class="history-text">渗透测试结果</div>
+                <div class="timestamp">上周</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="conversation-title">代码审计 #24</div>
+            <div class="top-actions">
+                <div class="action-icon">↗</div>
+                <div class="action-icon"> trash.svg</div>
+            </div>
+        </div>
+
+        <!-- Chat Messages Container -->
+        <div class="chat-container" id="chatContainer">
+            <!-- User Message -->
+            <div class="message user-message">
+                分析这段 Python 代码是否存在SQL注入风险：{' '}
+                <div class="code-block">
+                    <span class="code-keyword">def</span> get_user_data(user_id):
+                    <br><br>
+                    <span class="code-keyword">query</span> = f{'"'}SELECT * FROM users WHERE id = {'{'}user_id{'}'}{'"'}
+                    <br>
+                    result = db.execute(query)
+                    <br>
+                    <span class="code-keyword">return</span> result
+                </div>
+            </div>
+
+            <!-- Assistant Message -->
+            <div class="message assistant-message">
+                在您的代码中发现 2 处潜在 <span class="code-keyword">SQL 注入漏洞</span>：
+                <br><br>
+                1. <span class="code-string">'query' 变量直接拼接了未经验证的 user_id 参数</span>
+                <br>
+                2. 使用字符串格式化构建SQL查询非常危险
+                <br><br>
+                建议修复方案：
+                <div class="code-block">
+                    <span class="code-keyword">def</span> get_user_data(user_id):
+                    <br><br>
+                    <span class="code-keyword">query</span> = <span class="code-string">"SELECT * FROM users WHERE id = ?"</span>
+                    <br>
+                    result = db.execute(query, (user_id,))
+                    <br>
+                    <span class="code-keyword">return</span> result
+                </div>
+                这样使用参数化查询可以有效防止SQL注入攻击。
+            </div>
+
+            <!-- Another User Message -->
+            <div class="message user-message">谢谢！现在我需要检查一个JavaScript函数是否容易受到XSS攻击。</div>
+
+            <!-- Another Assistant Message -->
+            <div class="message assistant-message">我已经完成了对您JavaScript函数的安全性评估，发现了潜在的XSS风险。我建议立即实施以下措施：<br><br>1. 输入验证和清理<br>2. HTML编码输出<br>3. 实施适当的内容安全策略(CSP)。<br><br>是否需要我为您生成修复代码片段？</div>
+        </div>
+
+        <!-- File Attachments Area -->
+        <div class="file-attachments">
+            <div class="attachment-header">
+                <div class="lock-icon">🔒</div>
+                <div class="attachment-title">代码审计文件</div>
+            </div>
+            <div class="file-list">
+                <div class="file-card">
+                    <div class="file-header">
+                        <div class="file-icon">📄</div>
+                        <div class="file-meta">
+                            <div class="file-name">vulnerability_scan.py</div>
+                            <div class="file-lang">Python</div>
+                        </div>
+                    </div>
+                    <div class="file-size">15.2 KB</div>
+                    <button class="remove-btn">×</button>
+                </div>
+                <div class="file-card">
+                    <div class="file-header">
+                        <div class="file-icon">📄</div>
+                        <div class="file-meta">
+                            <div class="file-name">security_config.json</div>
+                            <div class="file-lang">JSON</div>
+                        </div>
+                    </div>
+                    <div class="file-size">2.4 KB</div>
+                    <button class="remove-btn">×</button>
+                </div>
+                <div class="add-file-card">
+                    <div class="cloud-icon">☁️</div>
+                    <div class="add-file-text">添加代码文件</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Message Input Area -->
+        <div class="input-area">
+            <div class="input-container">
+                <div class="attach-icon">📎</div>
+                <textarea 
+                    class="message-input" 
+                    placeholder="输入消息或粘贴代码..."></textarea>
+                <div class="send-icon">✈</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

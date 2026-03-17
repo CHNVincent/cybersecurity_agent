@@ -1,0 +1,25 @@
+{
+  "name": "code_audit",
+  "version": "1.0.0",
+  "description": "对上传的代码文件进行安全审计，查找漏洞",
+  "entry": "main.handler",
+  "parameters": [
+    {
+      "name": "file_path",
+      "type": "string",
+      "description": "待审计代码文件路径"
+    },
+    {
+      "type": "string",
+      "name": "language",
+      "description": "编程语言类型，可选: python, javascript, java, cpp, csharp",
+      "enum": ["python", "javascript", "java", "cpp", "csharp"]
+    },
+    {
+      "type": "integer",
+      "name": "timeout_seconds",
+      "description": "分析超时时间（秒）",
+      "default": 120
+    }
+  ]
+}
